@@ -1,2 +1,2 @@
 #!/bin/bash
-grep "bin" /etc/psswd | wc -l
+grep -i "bin" /etc/psswd | wc -l
