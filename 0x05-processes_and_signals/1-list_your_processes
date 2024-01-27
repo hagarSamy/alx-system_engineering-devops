@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
 #Displaying a list of running processes
 
+
+#aux = display info for all processes - all users
+#--forest = Displays the process hierarchy in a tree-like format
 ps aux --forest
