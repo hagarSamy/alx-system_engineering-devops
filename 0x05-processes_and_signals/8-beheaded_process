@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#terminating a process in file 7 with with pkill
+
+# Get the PID of the 7-highlander process
+pid=$(pgrep -f "7-highlander")
+
+# Send a SIGKILL signal to the process
+kill -9 "$pid"
