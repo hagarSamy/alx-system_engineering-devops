@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#terminating a process in file 4 with with pkill
+
+# Send a SIGTERM signal to the process TO TERMINATE IT
+pkill -f 4-to_infinity_and_beyond
