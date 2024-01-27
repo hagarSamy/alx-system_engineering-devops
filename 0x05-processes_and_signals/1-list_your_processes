@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#Displaying a list of running processes
+
+top
