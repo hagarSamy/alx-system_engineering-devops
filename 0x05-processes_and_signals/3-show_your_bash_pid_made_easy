@@ -2,5 +2,5 @@
 #displaying pids with processes names
 
 #pgrep - searches for all processes named bash and returns their pid
-#-i = displays cmdline used to display the process
+
 pgrep -l bash
