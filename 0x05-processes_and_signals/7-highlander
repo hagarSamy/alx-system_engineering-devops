@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#displaying a statement indifinitely with sleep in between
+#handles signals received
+
+while true
+do
+    echo "To infinity and beyond"
+    trap 'echo "I am invincible!!!"' SIGTERM
+    sleep 2
+done
