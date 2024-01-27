@@ -2,4 +2,5 @@
 #displayong lines containg "bash" word, to get PID of bash process
 # shellcheck disable=SC2009
 
+#awk = filter output acc. to that arg. after
 ps aux --forest | awk '/bash/'
