@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 #Displaying a list of running processes
 
-top
+top -n 1 -b
