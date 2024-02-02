@@ -6,4 +6,4 @@
 #scan = searches the string for matches (regular expression) returns an array of matches
 #.join = to put them ALL in 1 string
 
-puts ARGV[0].scan(\bSchool\b).join
+puts ARGV[0].scan(\School\).join
