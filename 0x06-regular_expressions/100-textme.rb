@@ -4,4 +4,4 @@
 #The ? makes it non-greedy
 #meaning it will stop matching as soon as
 #it finds a closing bracket ]
-puts ARGV[0].scan(/\[from:(.*?)\] \[to:(.*?)\] \[flags:(.*?)\]/).join(",")
+puts ARGV[0].scan(/\[from:(...)\] \[to:(.*?)\] \[flags:(.*?)\]/).join(",")
