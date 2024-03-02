@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# configuring an Ubuntu server to resolve localhost and facebook to different IP
+# create a file in home dir ~
+# maps "localhost" to the IP address "127.0.0.2"
+echo "127.0.0.2     localhost" > ~/hosts_new
+# maps "facebook.com" to the IP address "8.8.8.8".
+echo "8.8.8.8     facebook.com" >> ~/hosts_new
+tail -n +2 /etc/hosts >> ~/hosts_new
+cp -f ~/hosts_new /etc/hosts
