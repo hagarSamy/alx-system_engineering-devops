@@ -3,9 +3,6 @@
 # localhost resolves to 127.0.0.2
 # facebook.com resolves to 8.8.8.8.
 
-#copying content of hists to  anew file
-#cp /etc/hosts ~/hostsEditted
-
 echo "127.0.0.2		localhost" > ~/hostsEditted
 # >> to append and avoid overwrite
 echo "8.8.8.8		facebook.com" >> ~/hostsEditted
