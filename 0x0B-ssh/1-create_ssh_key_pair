@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # a Bash script that creates an RSA key pair
 # -t for type -b for number of bits, higher for more security
-ssh-keygen -t rsa -b 4096
+ssh-keygen -t RSA -b 4096
