@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+# a Bash script containing commands to automatically configure a Ubuntu machine so that /redirect_me is redirecting to another page  “301 Moved Permanently”
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
+# | sudo tee === >
+echo "Hello World!" | sudo tee /var/www/html/index
+# sed: Stream Editor - for text manipulation
+# -i to apply edits to the original file not to output
+# a: to append what's after to to the match before it
+sudo sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://www.youtube.com/ permanent;' /etc/nginx/sites-available/default
+sudo service nginx restart
