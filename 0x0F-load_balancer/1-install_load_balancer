@@ -12,8 +12,8 @@ frontend http
 printf '%s\n' "
 backend http_servers
     balance roundrobin
-    server 422381-web-01 3.85.54.241:80 check
-    server 422381-web-02 52.86.86.171:80 check" >> /etc/haproxy/haproxy.cfg
+    server 456316-web-01 34.207.63.146:80 check
+    server 456316-web-02 34.204.76.110:80 check" >> /etc/haproxy/haproxy.cfg
 
 # Update HAProxy to allow management via init script
 sudo systemctl enable haproxy
