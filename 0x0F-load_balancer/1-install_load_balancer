@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# a bash script to
+# Install and configure HAproxy 
+sudo apt update
+sudo apt install -y haproxy
+
+printf '%s\n' "
+frontend http
+    bind 0.0.0.0:80
+    default_backend http_servers" >> /etc/haproxy/haproxy.cfg
+
+printf '%s\n' "
+backend http_servers
+    balance roundrobin
+    server 422381-web-01 3.85.54.241:80 check
+    server 422381-web-02 52.86.86.171:80 check" >> /etc/haproxy/haproxy.cfg
+
+# Update HAProxy to allow management via init script
+sudo systemctl enable haproxy
+
+# Restart HAProxy to apply changes
+sudo service haproxy restart
