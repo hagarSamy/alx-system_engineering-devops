@@ -6,12 +6,7 @@
 domGetter() {
     domain="$1"
     subdomain="$2"
-    fullsubdom="${domain}.${subdomain}"
-#     result=$(dig +short "${fullsubdom}")
-#     ip=$(echo "${result}" | head -n 1)
-#     rectype=$(dig +short -t "${subdomain}" "${domain}")
-#     echo "The subdomain ${subdomain} is a ${rectype} record and points to ${ip}"
-# } 
+    fullsubdom="${domain}.${subdomain}" 
     ip=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | tr -d '\n')
     rectype=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | awk '{print $4}' | tr -d '\n')
     echo "The subdomain $subdomain is a $rectype record and points to $ip"
