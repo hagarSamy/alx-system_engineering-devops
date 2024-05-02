@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# Output: The subdomain [SUB_DOMAIN] is a [RECORD_TYPE] record and points to [DESTINATION]
+# When only the parameter domain is provided, display information for its subdomains www, lb-01, web-01 and web-02 - in this specific order
+# When passing domain and subdomain parameters, display information for the specified subdomain
+
+domGetter() {
+    domain="$1"
+    subdomain="$2"
+    fullsubdom=${domain}.${subdomain}
+    ip=$(dig "$fullsubdom" | grep -A1 'ANSWER SECTION:' | awk '{print $5}')
+    rectype=$(dig "$fullsubdom" | grep -A1 'ANSWER SECTION:' | awk '{print $4}')
+    echo "The subdomain "$subdomain" is a "$rectype" record and points to "$ip""
+}
+
+if [ $# -gt 1 ]
+then
+    domGetter "$1" "$2"
+elif [ $# -eq 1 ]
+then
+    domGetter "$1" "www"
+    domGetter "$1" "lb-01"
+    domGetter "$1" "web-01"
+    domGetter "$1" "web-02"
+fi
