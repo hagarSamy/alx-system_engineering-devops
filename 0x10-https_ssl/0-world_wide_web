@@ -6,17 +6,16 @@
 domGetter() {
     domain="$1"
     subdomain="$2"
-    fullsubdom=${domain}.${subdomain}
+    fullsubdom="${domain}.${subdomain}"
+    ip=$(dig "$fullsubdom")
     ip=$(dig "$fullsubdom" | grep -A1 'ANSWER SECTION:' | awk '{print $5}')
-    rectype=$(dig "$fullsubdom" | grep -A1 'ANSWER SECTION:' | awk '{print $4}')
-    echo "The subdomain "$subdomain" is a "$rectype" record and points to "$ip""
+    rectype=$(dig +short "$fullsubdom" | grep -A1 'ANSWER SECTION:' | awk '{print $4}')
+    echo "The subdomain $subdomain is a $rectype record and points to $ip"
 }
 
-if [ $# -gt 1 ]
-then
+if [ $# -gt 1 ]; then
     domGetter "$1" "$2"
-elif [ $# -eq 1 ]
-then
+elif [ $# -eq 1 ]; then
     domGetter "$1" "www"
     domGetter "$1" "lb-01"
     domGetter "$1" "web-01"
