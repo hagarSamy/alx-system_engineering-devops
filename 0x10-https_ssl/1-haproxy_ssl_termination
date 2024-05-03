@@ -1,3 +1,4 @@
+global
         log /dev/log    local0
         log /dev/log    local1 notice
         chroot /var/lib/haproxy
@@ -35,13 +36,15 @@ defaults
 
 #adding the location block for the redirect
 frontend http
-    bind 0.0.0.0:80
+    bind *:80
     default_backend http_servers
-    bind *:443 ssl crt /etc/haproxy/certs/domain.pem
+    # bind *:443 ssl crt /etc/haproxy/certs/domain.pem
+    bind *:443 ssl crt /etc/letsencrypt/live/www.hagarsamy.tech/hagarsamy.tech.pem
     redirect scheme https code 301 if !{ ssl_fc }
 
 #Adding backend servers to which traffic will be distributed
 backend http_servers
         balance roundrobin
+        http-request set-header X-Content-Source Holberton-School if { path -i -m beg / }
         server 456316-web-01 34.207.63.146:80 check
         server 456316-web-02 34.204.76.110:80 check
