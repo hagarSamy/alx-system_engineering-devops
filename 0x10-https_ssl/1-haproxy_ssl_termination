@@ -36,11 +36,11 @@ defaults
 
 #adding the location block for the redirect
 frontend http
-    bind *:80
-    default_backend http_servers
-    # bind *:443 ssl crt /etc/haproxy/certs/domain.pem
-    bind *:443 ssl crt /etc/letsencrypt/live/www.hagarsamy.tech/hagarsamy.tech.pem
-    redirect scheme https code 301 if !{ ssl_fc }
+        bind *:80
+        # bind *:443 ssl crt /etc/haproxy/certs/domain.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.hagarsamy.tech.pem
+        redirect scheme https code 301 if !{ ssl_fc }
+        default_backend http_servers
 
 #Adding backend servers to which traffic will be distributed
 backend http_servers
