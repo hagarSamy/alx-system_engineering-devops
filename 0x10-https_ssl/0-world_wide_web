@@ -7,8 +7,8 @@ domGetter() {
     domain="$1"
     subdomain="$2"
     fullsubdom="${subdomain}.${domain}" 
-    #ip=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | awk '{print $5}')
-    ip=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -1)
+    ip=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | awk '{print $5}' | tr -d '\n' )
+    #p=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -1)
     rectype=$(dig "${fullsubdom}" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | head -1)
     echo "The subdomain $subdomain is a $rectype record and points to $ip"
 }
