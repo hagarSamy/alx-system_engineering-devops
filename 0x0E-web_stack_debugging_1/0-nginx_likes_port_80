@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 # Fixing Ubuntu container’s Nginx to listen on port 80
-echo "<h1>Hello, World!</h1>" > /var/www/html/index.html
 # Enable the default site
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
