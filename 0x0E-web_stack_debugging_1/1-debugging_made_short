@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
-# Fixing Ubuntu container’s Nginx to listen on port 80
 sudo systemctl start nginx
 sudo systemctl status nginx
-# Enable the default site
 sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
 sudo systemctl restart nginx
-
