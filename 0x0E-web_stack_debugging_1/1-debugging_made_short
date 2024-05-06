@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-sudo systemctl start nginx
-sudo systemctl status nginx
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
-sudo systemctl restart nginx
+# to say it's not running while it's running 
+sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default # replaces all port 8080 with 80
+sudo service nginx restart # reload
+chmod 000 /run/nginx.pid # prevents access to pid -can't read pid, shows as not running
