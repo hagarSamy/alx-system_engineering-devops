@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 # to say it's not running while it's running 
-sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default # replaces all port 8080 with 80
-service nginx restart # reload
+sudo sed -i 's/8080/80/g' /etc/nginx/sites-enabled/default # replaces all port 8080 with 80
+sudo ervice nginx restart # reload
 chmod 000 /run/nginx.pid # prevents access to pid -can't read pid, shows as not running
