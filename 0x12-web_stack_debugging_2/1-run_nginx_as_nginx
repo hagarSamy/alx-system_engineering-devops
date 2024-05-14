@@ -7,6 +7,6 @@ chmod 644 /etc/nginx/nginx.conf
 # Replacement of all port 80 by 8080
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 # Stop any process that is currently running on 8080
-# kill "$(lsof -i:8080 -t)"
+kill "$(lsof -i:8080 -t)"
 # Restart nginx
 su nginx -c 'service nginx restart'
