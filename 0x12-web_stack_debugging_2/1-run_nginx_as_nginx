@@ -3,7 +3,7 @@
 # nginx must be listening on all active IPs on port 8080
 # set user to nginx
 sed -i "1 i\user nginx;" /etc/nginx/nginx.conf
-chmod 644 /etc/nginx/nginx.conf
+#chmod 644 /etc/nginx/nginx.conf
 # Replacement of all port 80 by 8080
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 # Stop any process that is currently running on 8080
