@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # nginx must be running as nginx user
-sed -i "1 i\user nginx"$'\x3B' /etc/nginx/nginx.conf #\x3B ASCCI for the ;
+sed -i "1 i\user nginx"$'\x3B' /etc/nginx/nginx.conf
 chmod 644 /etc/nginx/nginx.conf
 sed -i 's/80/8080/g' /etc/nginx/sites-available/default
 kill "$(lsof -i:8080 -t)"
