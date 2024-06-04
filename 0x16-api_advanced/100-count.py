@@ -8,7 +8,8 @@ import requests
 
 def count_words(subreddit, word_list, counts={}, after=None):
     ''' a function that queries queries the Reddit API and returns a list
-    containing the titles of all hot articles for a given subreddit. If no results are
+    containing the titles of all hot articles for a
+    given subreddit. If no results are
     found for the given subreddit, the function should return None.'''
     base_url = "https://www.reddit.com/r"
     headers = {
@@ -46,10 +47,12 @@ def count_words(subreddit, word_list, counts={}, after=None):
             # Recursive call with updated 'after'
             return count_words(subreddit, word_list, counts, after)
         else:
-            '''sorts according to values returned from .items -- key and lambda part'''
+            '''sorts according to values returned from .items
+            -- key and lambda part'''
             '''.items returns a list of tuples of ks, vs'''
             '''lambda processes on each element of the iteratable(2nd arg)'''
-            '''reverse=True: This argument sorts the list in descending order.'''
+            '''reverse=True: This argument sorts the list in
+            descending order.'''
             sorted_counts = dict(sorted(counts.items(),
                                         key=lambda item: item[1],
                                         reverse=True))
