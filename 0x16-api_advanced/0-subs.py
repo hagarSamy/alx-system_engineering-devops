@@ -12,7 +12,7 @@ def number_of_subscribers(subreddit):
         if response.status_code == 200:
             data = response.json()
             return data['data']['subscribers']
-        elif response.status_code in [301, 302, 404]:
+        else:
             # Handle redirects and not found errors
             return 0
     except Exception:
