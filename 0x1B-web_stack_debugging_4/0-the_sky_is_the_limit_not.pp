@@ -5,3 +5,7 @@ file { '/etc/default/nginx':
   content => 'ULIMIT="-n 4096"\n',
   notify  => Service['nginx'],
 }
+service { 'nginx':
+  ensure => running,
+  enable => true,
+}
